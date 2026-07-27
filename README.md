@@ -7,6 +7,7 @@
 ## 包含内容
 
 - Hyprland 主配置：`config/hypr/hyprland.conf`
+- Sunshine 配置：`config/sunshine/sunshine.conf`
 - Waybar 顶栏：`config/waybar/config.jsonc`、`config/waybar/style.css`
 - Wofi 应用菜单和电源菜单：`config/wofi/`
 - Fcitx5 亮色输入法候选框主题：`config/fcitx5/`
@@ -180,6 +181,14 @@ sudo ufw allow 48010/tcp comment Sunshine
 sudo ufw allow 5353/udp comment mDNS
 sudo ufw reload
 ```
+
+如果机器上有类似 `Meta` 这样的代理/虚拟网卡，mDNS 多播可能会走错网卡。可以用脚本把 Moonlight/Sunshine 发现用到的多播路由固定到当前 Wi-Fi：
+
+```bash
+./scripts/fix-moonlight-discovery.sh
+```
+
+脚本会确认 `224.0.0.251` 和 `239.255.255.250` 走 Wi-Fi 网卡。
 
 ## GDM 自动登录 Hyprland
 
