@@ -122,6 +122,10 @@ apply_configs() {
   render_tree "$repo_dir/config/fcitx5/conf" "${HOME}/.config/fcitx5/conf"
   render_tree "$repo_dir/config/fcitx5/themes/pure-white" "${HOME}/.local/share/fcitx5/themes/pure-white"
   render_tree "$repo_dir/config/systemd/user" "${HOME}/.config/systemd/user"
+  if [ -d "$repo_dir/config/systemd/system" ]; then
+    sudo mkdir -p /etc/systemd/system
+    sudo cp -R "$repo_dir/config/systemd/system/." /etc/systemd/system/
+  fi
   copy_binary_assets
 
   chmod +x "${HOME}/.config/hypr"/*.sh
@@ -133,6 +137,8 @@ apply_configs() {
   fi
 
   systemctl --user daemon-reload || true
+  sudo systemctl daemon-reload || true
+  sudo systemctl enable --now tailscaled.service || true
   systemctl --user enable --now waybar-ime-guard.service || true
   systemctl --user enable --now app-dev.lizardbyte.app.Sunshine.service || true
 }
