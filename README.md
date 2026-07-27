@@ -12,6 +12,7 @@
 - Wofi 应用菜单和电源菜单：`config/wofi/`
 - Fcitx5 亮色输入法候选框主题：`config/fcitx5/`
 - 远程/无头启动脚本：`config/hypr/headless-remote.sh`
+- Sunshine 启动前无头输出保底：`config/hypr/ensure-sunshine-output.sh`
 - Windows 类快捷键脚本：显示桌面、Alt+Tab、壁纸切换、电源菜单
 - IME fullscreen guard：`config/systemd/user/waybar-ime-guard.service`
 - 安装脚本：`install.sh`
@@ -153,6 +154,8 @@ Waybar 是亮色 MD3 胶囊风格：
 
 - `wayvnc`
 - `app-dev.lizardbyte.app.Sunshine.service`
+
+Sunshine 用户服务也带了 `ExecStartPre=~/.config/hypr/ensure-sunshine-output.sh` 保底检查。这样不插 HDMI/显示器时，Sunshine 启动前会先让 Hyprland 创建一个 `HEADLESS-1` 输出，避免 `Unable to find display or encoder during startup`。
 
 当前 Hyprland 配置里固定了：
 
