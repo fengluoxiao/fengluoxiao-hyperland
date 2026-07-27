@@ -14,4 +14,4 @@ hyprctl keyword monitor 'HEADLESS-1,1920x1080@60,0x0,1' >/dev/null 2>&1 || true
 sleep 2
 
 pgrep -x wayvnc >/dev/null 2>&1 || wayvnc >/tmp/wayvnc-hyprland.log 2>&1 &
-pgrep -x sunshine >/dev/null 2>&1 || sunshine >/tmp/sunshine-hyprland.log 2>&1 &
+systemctl --user start app-dev.lizardbyte.app.Sunshine.service >/dev/null 2>&1 || true

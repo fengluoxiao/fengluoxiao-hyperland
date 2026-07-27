@@ -132,6 +132,7 @@ apply_configs() {
 
   systemctl --user daemon-reload || true
   systemctl --user enable --now waybar-ime-guard.service || true
+  systemctl --user enable --now app-dev.lizardbyte.app.Sunshine.service || true
 }
 
 case "${1:-all}" in

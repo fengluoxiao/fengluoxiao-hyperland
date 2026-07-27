@@ -151,7 +151,7 @@ Waybar 是亮色 MD3 胶囊风格：
 `headless-remote.sh` 会在 Hyprland 启动后尝试确保 `HEADLESS-1` 可用，然后启动：
 
 - `wayvnc`
-- `sunshine`
+- `app-dev.lizardbyte.app.Sunshine.service`
 
 当前 Hyprland 配置里固定了：
 
@@ -163,6 +163,23 @@ monitor = , preferred, auto, 1
 ```
 
 如果机器没有物理显示器，优先用 Sunshine + Moonlight 连接；Tailscale 负责异地组网。
+
+Sunshine 建议交给 systemd 用户服务托管：
+
+```bash
+systemctl --user enable --now app-dev.lizardbyte.app.Sunshine.service
+```
+
+如果 Moonlight 局域网发现不到这台电脑，先手动添加 `https://主机IP:47990` 对应的主机 IP，当前配置常用端口需要在防火墙放行：
+
+```bash
+sudo ufw allow 47984/tcp comment Sunshine
+sudo ufw allow 47989/tcp comment Sunshine
+sudo ufw allow 47990/tcp comment Sunshine
+sudo ufw allow 48010/tcp comment Sunshine
+sudo ufw allow 5353/udp comment mDNS
+sudo ufw reload
+```
 
 ## GDM 自动登录 Hyprland
 
