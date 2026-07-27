@@ -1,0 +1,39 @@
+window {
+  margin: 0;
+  border: 1px solid #d8ecf7;
+  border-radius: 18px;
+  background-color: #f8fbfd;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+#outer-box {
+  padding: 8px;
+}
+
+#inner-box {
+  margin: 0;
+}
+
+#entry {
+  margin: 4px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  color: #123244;
+  background: #d8ecf7;
+  font-weight: 800;
+}
+
+#entry:selected {
+  color: #ffffff;
+  background: #3388bb;
+}
+
+#entry:hover {
+  color: #ffffff;
+  background: #881144;
+}
+
+#text {
+  color: inherit;
+}

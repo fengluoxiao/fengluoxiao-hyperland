@@ -1,0 +1,12 @@
+show=drun
+width=860
+height=620
+columns=4
+prompt=应用
+normal_window=true
+allow_images=true
+hide_scroll=true
+insensitive=true
+matching=fuzzy
+location=center
+term=kitty

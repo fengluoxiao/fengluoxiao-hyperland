@@ -1,0 +1,91 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 42,
+  "margin-top": 10,
+  "margin-left": 12,
+  "margin-right": 12,
+  "spacing": 10,
+  "modules-left": ["custom/launcher", "custom/showdesktop", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/close", "custom/wallpaper", "custom/settings", "custom/power", "tray", "pulseaudio", "network"],
+
+  "custom/launcher": {
+    "format": "应用",
+    "tooltip": false,
+    "on-click": "__HOME__/.config/hypr/toggle-apps.sh",
+    "on-click-right": "thunar"
+  },
+
+  "custom/showdesktop": {
+    "format": "桌面",
+    "tooltip": false,
+    "on-click": "__HOME__/.config/hypr/show-desktop.sh"
+  },
+
+  "custom/close": {
+    "format": "关闭",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch killactive"
+  },
+
+  "custom/wallpaper": {
+    "format": "壁纸",
+    "tooltip": false,
+    "on-click": "__HOME__/.config/hypr/set-wallpaper.sh"
+  },
+
+  "custom/settings": {
+    "format": "设置",
+    "tooltip": false,
+    "on-click": "nwg-look",
+    "on-click-right": "fcitx5-configtool"
+  },
+
+  "custom/power": {
+    "format": "电源",
+    "tooltip": false,
+    "on-click": "__HOME__/.config/hypr/power-menu.sh"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 72,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%H:%M  %m-%d}",
+    "tooltip-format": "{:%Y-%m-%d %A}",
+    "on-click": "zenity --calendar --title=日历 --text=选择日期",
+    "on-click-right": "gnome-control-center datetime"
+  },
+
+  "pulseaudio": {
+    "format": "音量 {volume}%",
+    "format-muted": "静音",
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "format-wifi": "网络 {essid}",
+    "format-ethernet": "网络 有线",
+    "format-disconnected": "网络 断开",
+    "tooltip-format": "{ifname} {ipaddr}",
+    "on-click": "nm-connection-editor",
+    "on-click-right": "kitty --title 网络设置 nmtui"
+  },
+
+  "tray": {
+    "spacing": 8,
+    "icon-size": 16
+  }
+}

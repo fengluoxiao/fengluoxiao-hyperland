@@ -1,0 +1,11 @@
+width=220
+height=210
+lines=4
+columns=1
+prompt=电源
+normal_window=true
+hide_search=true
+insensitive=true
+location=center
+xoffset=0
+yoffset=0

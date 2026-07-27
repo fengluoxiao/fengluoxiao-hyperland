@@ -1,0 +1,154 @@
+@define-color primary #3388bb;
+@define-color on-primary #ffffff;
+@define-color primary-container #d8ecf7;
+@define-color on-primary-container #123244;
+@define-color hover #881144;
+@define-color on-hover #ffffff;
+@define-color surface rgba(248, 251, 253, 0.32);
+@define-color surface-container #e8f1f7;
+@define-color surface-container-high #dceaf3;
+@define-color on-surface #17202a;
+@define-color on-surface-variant #4c6070;
+@define-color outline rgba(51, 136, 187, 0.26);
+@define-color danger #c7475f;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Inter, "JetBrains Mono", sans-serif;
+  font-size: 13px;
+  min-height: 0;
+  font-weight: 600;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on-surface;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 22px;
+  padding: 4px;
+  box-shadow: 0 10px 32px rgba(16, 40, 56, 0.16);
+}
+
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  color: @on-surface-variant;
+  padding: 0 12px;
+  margin: 0 3px;
+  border-radius: 18px;
+  background: transparent;
+  transition: all 140ms ease;
+}
+
+#workspaces button.active {
+  color: @on-primary;
+  background: @primary;
+}
+
+#workspaces button:hover {
+  color: @on-hover;
+  background: @hover;
+}
+
+#workspaces button.urgent {
+  color: @on-hover;
+  background: @danger;
+}
+
+#window {
+  padding: 0 16px;
+  color: @on-surface;
+}
+
+#custom-launcher,
+#custom-showdesktop {
+  padding: 0 18px;
+  margin: 0 4px 0 0;
+  border-radius: 18px;
+  color: @on-primary;
+  background: @primary;
+  font-weight: 800;
+}
+
+#custom-showdesktop {
+  color: @on-primary-container;
+  background: @primary-container;
+}
+
+#custom-wallpaper,
+#custom-settings,
+#custom-power {
+  padding: 0 16px;
+  margin: 0 4px 0 0;
+  border-radius: 18px;
+  color: @on-primary-container;
+  background: @primary-container;
+  font-weight: 800;
+}
+
+#custom-launcher:hover,
+#custom-showdesktop:hover,
+#custom-wallpaper:hover,
+#custom-settings:hover,
+#custom-power:hover {
+  color: @on-hover;
+  background: @hover;
+}
+
+#custom-close {
+  padding: 0 16px;
+  margin: 0 4px 0 0;
+  border-radius: 18px;
+  color: @on-primary-container;
+  background: @surface-container-high;
+  font-weight: 800;
+}
+
+#custom-close:hover {
+  color: @on-hover;
+  background: @hover;
+}
+
+#clock,
+#tray,
+#pulseaudio,
+#network {
+  padding: 0 14px;
+  margin: 0 2px;
+  border-radius: 18px;
+  color: @on-surface-variant;
+  background: @surface-container;
+}
+
+#clock {
+  color: @on-primary-container;
+  background: @primary-container;
+  padding: 0 18px;
+}
+
+#pulseaudio {
+  color: @on-primary-container;
+  background: @primary-container;
+}
+
+#network {
+  color: @on-primary-container;
+  background: @primary-container;
+}
+
+#clock:hover,
+#tray:hover,
+#pulseaudio:hover,
+#network:hover {
+  color: @on-hover;
+  background: @hover;
+}

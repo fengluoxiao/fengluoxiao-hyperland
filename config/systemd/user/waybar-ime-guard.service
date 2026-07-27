@@ -1,0 +1,12 @@
+[Unit]
+Description=Transparent Waybar overlay to keep IME popups visible over fullscreen
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waybar -c __HOME__/.config/waybar/ime-guard.jsonc -s __HOME__/.config/waybar/ime-guard.css
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
