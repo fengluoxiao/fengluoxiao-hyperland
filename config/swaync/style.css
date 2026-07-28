@@ -1,4 +1,5 @@
 @define-color primary #3388bb;
+@define-color primary-container #d8ecf7;
 @define-color hover #881144;
 @define-color surface #f8fbfd;
 @define-color surface-container #e8f1f7;
@@ -128,12 +129,39 @@ blankwindow {
   margin: 10px;
 }
 
+.widget-dnd label {
+  color: @text;
+  font-weight: 800;
+}
+
 .widget-title > button,
 .widget-dnd > switch {
   background: @surface-container;
+  background-image: none;
   border-radius: 14px;
   border: none;
   color: @text;
+  min-width: 42px;
+  min-height: 22px;
+}
+
+.widget-dnd > switch:checked {
+  background: @primary-container;
+  background-image: none;
+}
+
+.widget-dnd > switch slider {
+  background: @muted;
+  background-image: none;
+  border-radius: 999px;
+  box-shadow: none;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @primary;
+  background-image: none;
 }
 
 .widget-title > button:hover {

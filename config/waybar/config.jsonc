@@ -8,7 +8,7 @@
   "spacing": 10,
   "modules-left": ["custom/launcher", "custom/showdesktop", "hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/close", "custom/wallpaper", "custom/settings", "custom/power", "tray", "pulseaudio", "network"],
+  "modules-right": ["custom/close", "custom/wallpaper", "custom/settings", "custom/power", "custom/notifications", "tray", "pulseaudio", "network"],
 
   "custom/launcher": {
     "format": "应用",
@@ -46,6 +46,13 @@
     "format": "电源",
     "tooltip": false,
     "on-click": "__HOME__/.config/hypr/power-menu.sh"
+  },
+
+  "custom/notifications": {
+    "format": "通知",
+    "tooltip": false,
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -C"
   },
 
   "hyprland/workspaces": {
