@@ -1,0 +1,57 @@
+/* Make web page text selection visible in Chromium/Edge and keep GTK apps on the Hyprland palette. */
+selection {
+  background-color: #3388bb;
+  color: #ffffff;
+}
+
+textview text selection,
+textview text selection:focus,
+entry selection,
+entry selection:focus {
+  background-color: #3388bb;
+  color: #ffffff;
+}
+
+*:selected {
+  background-color: #3388bb;
+  color: #ffffff;
+}
+
+.navigation-sidebar,
+placessidebar,
+placessidebar list {
+  background-color: #f8fbfd;
+  color: #4b5b66;
+  min-width: 188px;
+}
+
+.navigation-sidebar row,
+placessidebar row,
+sidebar row {
+  min-height: 34px;
+  margin: 2px 8px;
+  padding: 0 10px;
+  border-radius: 12px;
+  color: #4b5b66;
+}
+
+.navigation-sidebar row image,
+placessidebar row image,
+sidebar row image {
+  color: #5f6f7a;
+}
+
+.navigation-sidebar row:selected,
+placessidebar row:selected,
+sidebar row:selected {
+  background-color: #e7f3fa;
+  color: #3388bb;
+  font-weight: 700;
+}
+
+.navigation-sidebar row:hover,
+placessidebar row:hover,
+sidebar row:hover {
+  background-color: #f1dce5;
+  color: #881144;
+}

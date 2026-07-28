@@ -64,9 +64,16 @@ window#waybar {
   background: @danger;
 }
 
-#window {
+#window,
+#custom-activewindow {
   padding: 0 16px;
   color: @on-surface;
+}
+
+#custom-activewindow:hover {
+  color: @on-hover;
+  background: @hover;
+  border-radius: 18px;
 }
 
 #custom-launcher,

@@ -20,6 +20,7 @@ apt_packages=(
   swappy
   wl-clipboard
   cliphist
+  curl
   fuzzel
   jq
   zenity
@@ -42,6 +43,7 @@ apt_packages=(
   fonts-inter
   fonts-jetbrains-mono
   fonts-noto-cjk
+  paper-icon-theme
   wayvnc
   xdg-desktop-portal-hyprland
   gnome-control-center
@@ -105,6 +107,25 @@ copy_binary_assets() {
   cp "$repo_dir/config/fcitx5/themes/pure-white/radio.png" "${HOME}/.local/share/fcitx5/themes/pure-white/"
 }
 
+install_flat_remix_icons() {
+  local theme_name="Flat-Remix-Blue-Light"
+  local archive="${XDG_CACHE_HOME:-${HOME}/.cache}/fengluoxiao-hyprland/flat-remix-master.tar.gz"
+  local workdir
+  workdir="$(mktemp -d)"
+
+  mkdir -p "$(dirname "$archive")" "${HOME}/.local/share/icons/${theme_name}"
+  if [ ! -f "$archive" ]; then
+    curl -L --connect-timeout 20 --max-time 300 \
+      -o "$archive" \
+      "https://gh-proxy.com/https://github.com/daniruiz/flat-remix/archive/refs/heads/master.tar.gz"
+  fi
+
+  tar -xzf "$archive" -C "$workdir" "flat-remix-master/${theme_name}"
+  cp -R "$workdir/flat-remix-master/${theme_name}/." "${HOME}/.local/share/icons/${theme_name}/"
+  gtk-update-icon-cache -q "${HOME}/.local/share/icons/${theme_name}" || true
+  rm -rf "$workdir"
+}
+
 apply_configs() {
   mkdir -p "${HOME}/.config" "${HOME}/.local/share/fcitx5/themes"
 
@@ -116,6 +137,8 @@ apply_configs() {
   backup_path "${HOME}/.config/sunshine/sunshine.conf"
   backup_path "${HOME}/.config/fcitx5/config"
   backup_path "${HOME}/.config/fcitx5/conf/classicui.conf"
+  backup_path "${HOME}/.config/gtk-3.0/gtk.css"
+  backup_path "${HOME}/.config/gtk-4.0/gtk.css"
   backup_path "${HOME}/.local/share/fcitx5/themes/pure-white"
   backup_path "${HOME}/.config/systemd/user/waybar-ime-guard.service"
 
@@ -125,6 +148,8 @@ apply_configs() {
   render_tree "$repo_dir/config/dunst" "${HOME}/.config/dunst"
   render_tree "$repo_dir/config/swaync" "${HOME}/.config/swaync"
   render_tree "$repo_dir/config/sunshine" "${HOME}/.config/sunshine"
+  render_tree "$repo_dir/config/gtk-3.0" "${HOME}/.config/gtk-3.0"
+  render_tree "$repo_dir/config/gtk-4.0" "${HOME}/.config/gtk-4.0"
   if [ -f "$repo_dir/config/fcitx5/config" ]; then
     sed "s#__HOME__#${HOME}#g" "$repo_dir/config/fcitx5/config" >"${HOME}/.config/fcitx5/config"
   fi
@@ -150,6 +175,15 @@ apply_configs() {
   sudo systemctl enable --now tailscaled.service || true
   systemctl --user enable --now waybar-ime-guard.service || true
   systemctl --user enable --now app-dev.lizardbyte.app.Sunshine.service || true
+
+  install_flat_remix_icons || true
+  if [ -d "${HOME}/.local/share/icons/Flat-Remix-Blue-Light" ]; then
+    gsettings set org.gnome.desktop.interface icon-theme 'Flat-Remix-Blue-Light' || true
+    xfconf-query -c xsettings -p /Net/IconThemeName -n -t string -s Flat-Remix-Blue-Light || true
+  else
+    gsettings set org.gnome.desktop.interface icon-theme 'Paper' || true
+    xfconf-query -c xsettings -p /Net/IconThemeName -n -t string -s Paper || true
+  fi
 }
 
 case "${1:-all}" in
