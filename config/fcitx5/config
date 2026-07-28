@@ -1,0 +1,24 @@
+[Hotkey]
+# Trigger Input Method
+TriggerKeys=
+
+# Enumerate when pressing trigger repeatedly
+EnumerateWithTriggerKeys=False
+
+# Enumerate Input Method Forward
+EnumerateForwardKeys=
+Control+Shift+space
+
+# Enumerate Input Method Backward
+EnumerateBackwardKeys=
+
+[Hotkey/EnumerateForwardKeys]
+0=Control+Shift+space
+
+[Behavior]
+# Do not show the input method information popup on switch; under Hyprland it can
+# lose the text cursor position and appear at the far-left edge of the screen.
+ShowInputMethodInformation=False
+showInputMethodInformationWhenFocusIn=False
+CompactInputMethodInformation=True
+ShowFirstInputMethodInformation=False

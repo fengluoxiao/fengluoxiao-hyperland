@@ -1,0 +1,142 @@
+@define-color primary #3388bb;
+@define-color hover #881144;
+@define-color surface #f8fbfd;
+@define-color surface-container #e8f1f7;
+@define-color outline #b8dff2;
+@define-color text #15232d;
+@define-color muted #50616d;
+
+* {
+  font-family: Inter, "Noto Sans CJK SC", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+notificationwindow,
+blankwindow {
+  background: transparent;
+}
+
+.notification-row {
+  background: transparent;
+  outline: none;
+}
+
+.notification-row .notification-background {
+  padding: 10px 16px 6px 6px;
+}
+
+.notification-row .notification-background .notification {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 18px;
+  box-shadow: none;
+  padding: 0;
+}
+
+.notification-row .notification-background .notification.critical {
+  border-color: @hover;
+}
+
+.notification-default-action {
+  background: transparent;
+  border: none;
+  border-radius: 18px;
+  color: @text;
+  padding: 12px 14px;
+}
+
+.notification-default-action:hover {
+  background: transparent;
+}
+
+.notification-content {
+  background: transparent;
+  border-radius: 18px;
+  padding: 0;
+}
+
+.notification-content .image,
+.notification-content .app-icon {
+  -gtk-icon-filter: none;
+  -gtk-icon-size: 36px;
+  border-radius: 10px;
+  margin: 0 12px 0 0;
+}
+
+.notification-content .text-box .summary {
+  color: @text;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.notification-content .text-box .body,
+.notification-content .text-box .time {
+  color: @muted;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.close-button {
+  background: @primary;
+  color: #ffffff;
+  border: 2px solid @surface;
+  border-radius: 999px;
+  box-shadow: none;
+  margin-top: 0;
+  margin-right: 0;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+}
+
+.close-button:hover {
+  background: @hover;
+  color: #ffffff;
+  border: 2px solid @surface;
+  box-shadow: none;
+}
+
+.notification-action > button {
+  background: @surface-container;
+  color: @text;
+  border: none;
+  border-radius: 14px;
+  padding: 8px 12px;
+}
+
+.notification-action > button:hover {
+  background: @hover;
+  color: #ffffff;
+}
+
+.control-center {
+  background: @surface;
+  border: 1px solid @outline;
+  border-radius: 18px;
+  box-shadow: none;
+  color: @text;
+}
+
+.control-center .notification-row .notification-background {
+  padding: 6px;
+}
+
+.widget-title,
+.widget-dnd {
+  color: @text;
+  margin: 10px;
+}
+
+.widget-title > button,
+.widget-dnd > switch {
+  background: @surface-container;
+  border-radius: 14px;
+  border: none;
+  color: @text;
+}
+
+.widget-title > button:hover {
+  background: @hover;
+  color: #ffffff;
+}

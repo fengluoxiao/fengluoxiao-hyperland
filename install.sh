@@ -11,6 +11,7 @@ apt_packages=(
   kitty
   thunar
   dunst
+  sway-notification-center
   swaybg
   hypridle
   hyprlock
@@ -111,7 +112,9 @@ apply_configs() {
   backup_path "${HOME}/.config/waybar"
   backup_path "${HOME}/.config/wofi"
   backup_path "${HOME}/.config/dunst"
+  backup_path "${HOME}/.config/swaync"
   backup_path "${HOME}/.config/sunshine/sunshine.conf"
+  backup_path "${HOME}/.config/fcitx5/config"
   backup_path "${HOME}/.config/fcitx5/conf/classicui.conf"
   backup_path "${HOME}/.local/share/fcitx5/themes/pure-white"
   backup_path "${HOME}/.config/systemd/user/waybar-ime-guard.service"
@@ -120,7 +123,11 @@ apply_configs() {
   render_tree "$repo_dir/config/waybar" "${HOME}/.config/waybar"
   render_tree "$repo_dir/config/wofi" "${HOME}/.config/wofi"
   render_tree "$repo_dir/config/dunst" "${HOME}/.config/dunst"
+  render_tree "$repo_dir/config/swaync" "${HOME}/.config/swaync"
   render_tree "$repo_dir/config/sunshine" "${HOME}/.config/sunshine"
+  if [ -f "$repo_dir/config/fcitx5/config" ]; then
+    sed "s#__HOME__#${HOME}#g" "$repo_dir/config/fcitx5/config" >"${HOME}/.config/fcitx5/config"
+  fi
   render_tree "$repo_dir/config/fcitx5/conf" "${HOME}/.config/fcitx5/conf"
   render_tree "$repo_dir/config/fcitx5/themes/pure-white" "${HOME}/.local/share/fcitx5/themes/pure-white"
   render_tree "$repo_dir/config/systemd/user" "${HOME}/.config/systemd/user"

@@ -4,7 +4,7 @@
 @define-color on-primary-container #123244;
 @define-color hover #881144;
 @define-color on-hover #ffffff;
-@define-color surface rgba(248, 251, 253, 0.32);
+@define-color surface #f8fbfd;
 @define-color surface-container #e8f1f7;
 @define-color surface-container-high #dceaf3;
 @define-color on-surface #17202a;
@@ -33,7 +33,7 @@ window#waybar {
   border: 1px solid @outline;
   border-radius: 22px;
   padding: 4px;
-  box-shadow: 0 10px 32px rgba(16, 40, 56, 0.16);
+  box-shadow: none;
 }
 
 #workspaces {

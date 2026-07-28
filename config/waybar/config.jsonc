@@ -65,7 +65,7 @@
   "clock": {
     "format": "{:%H:%M  %m-%d}",
     "tooltip-format": "{:%Y-%m-%d %A}",
-    "on-click": "zenity --calendar --title=日历 --text=选择日期",
+    "on-click": "__HOME__/.config/hypr/calendar-popup.py",
     "on-click-right": "gnome-control-center datetime"
   },
 
