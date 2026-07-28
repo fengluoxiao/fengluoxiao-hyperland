@@ -1,0 +1,78 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = (320, 420)
+    height = (0, 220)
+    origin = top-right
+    offset = (16, 68)
+    scale = 0
+    notification_limit = 5
+
+    progress_bar = true
+    progress_bar_height = 6
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 180
+    progress_bar_max_width = 380
+    progress_bar_corner_radius = 3
+
+    transparency = 0
+    separator_height = 0
+    padding = 16
+    horizontal_padding = 18
+    text_icon_padding = 14
+    frame_width = 1
+    frame_color = "#d8ecf7"
+    gap_size = 10
+    separator_color = frame
+    corner_radius = 18
+    corners = all
+
+    font = Inter 10
+    line_height = 4
+    markup = full
+    format = "<b>%s</b>\n<span foreground='#50616d'>%b</span>"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = -1
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = true
+    show_indicators = no
+
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 42
+    icon_corner_radius = 10
+    icon_theme = Papirus, Adwaita, hicolor
+
+    dmenu = /usr/bin/wofi --dmenu --prompt 通知
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#f8fbfd"
+    foreground = "#15232d"
+    highlight = "#3388bb"
+    frame_color = "#d8ecf7"
+    timeout = 4
+
+[urgency_normal]
+    background = "#f8fbfd"
+    foreground = "#15232d"
+    highlight = "#3388bb"
+    frame_color = "#b8dff2"
+    timeout = 6
+
+[urgency_critical]
+    background = "#fff7fa"
+    foreground = "#2b111b"
+    highlight = "#881144"
+    frame_color = "#881144"
+    timeout = 0
